@@ -1,0 +1,11 @@
+<section class="search-bar-shell">
+  <label for="account-search">Search accounts</label>
+  <input
+    id="account-search"
+    type="text"
+    placeholder="Try account number, short name, customer id..."
+    [(ngModel)]="query"
+    (ngModelChange)="onInput($event)"
+  />
+  <p>Search supports: Account Number, Short Name, Full Name, Customer Id, Office Code</p>
+</section>

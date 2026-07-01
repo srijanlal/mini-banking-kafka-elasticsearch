@@ -1,0 +1,34 @@
+package com.example.acctsearch.config;
+
+import com.example.acctsearch.event.SearchEvent;
+import org.apache.kafka.clients.producer.ProducerConfig;
+import org.apache.kafka.common.serialization.StringSerializer;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
+import org.springframework.boot.ssl.SslBundles;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.core.DefaultKafkaProducerFactory;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.core.ProducerFactory;
+import org.springframework.kafka.support.serializer.JsonSerializer;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@Configuration
+public class KafkaProducerConfig {
+
+    @Bean
+    public ProducerFactory<String, SearchEvent> producerFactory(KafkaProperties kafkaProperties, SslBundles sslBundles) {
+        Map<String, Object> config = new HashMap<>(kafkaProperties.buildProducerProperties(sslBundles));
+        config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+        config.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);
+        return new DefaultKafkaProducerFactory<>(config);
+    }
+
+    @Bean
+    public KafkaTemplate<String, SearchEvent> kafkaTemplate(ProducerFactory<String, SearchEvent> producerFactory) {
+        return new KafkaTemplate<>(producerFactory);
+    }
+}

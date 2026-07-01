@@ -1,0 +1,14 @@
+spring:
+  elasticsearch:
+    uris: http://localhost:9200
+  kafka:
+    bootstrap-servers: localhost:9094
+
+acctsearch:
+  max-results: 20
+  default-username: learner-user
+  data-loader:
+    enabled: true
+  kafka:
+    account-search-events-topic: account-search-events
+    account-search-events-dlt-topic: account-search-events-dlt

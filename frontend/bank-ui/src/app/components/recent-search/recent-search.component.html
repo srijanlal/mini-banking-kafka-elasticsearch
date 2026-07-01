@@ -1,0 +1,23 @@
+<section class="panel">
+  <div class="panel-head">
+    <h2>Recent Searches</h2>
+    <span>Most recent first</span>
+  </div>
+
+  @if (loading) {
+    <p class="state">Refreshing recent searches...</p>
+  } @else if (items.length === 0) {
+    <p class="state">No recent searches yet. Click a search result to populate this panel.</p>
+  } @else {
+    <ol>
+      @for (item of items; track item.id) {
+        <li>
+          <strong>{{ item.accountName }}</strong>
+          <small>
+            #{{ item.accountNumber }} by {{ item.username }} at {{ item.clickedAt | date: 'medium' }}
+          </small>
+        </li>
+      }
+    </ol>
+  }
+</section>

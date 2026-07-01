@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: recentsearch-service
+  profiles:
+    default: local
+  elasticsearch:
+    uris: http://localhost:9200
+  kafka:
+    bootstrap-servers: localhost:9094
+    consumer:
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      properties:
+        max.poll.interval.ms: 300000
+    listener:
+      ack-mode: record
+      missing-topics-fatal: false
+
+server:
+  port: 8200
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+recentsearch:
+  max-results: 50
+  kafka:
+    account-search-events-topic: account-search-events
+    account-search-events-dlt-topic: account-search-events-dlt
+    group-id: recentsearch-consumer-group
+    consumer-enabled: true
+
+logging:
+  level:
+    root: INFO
+    com.example.recentsearch: INFO

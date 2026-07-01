@@ -1,0 +1,13 @@
+spring:
+  elasticsearch:
+    uris: http://localhost:9200
+  kafka:
+    bootstrap-servers: localhost:9094
+
+recentsearch:
+  max-results: 50
+  kafka:
+    account-search-events-topic: account-search-events
+    account-search-events-dlt-topic: account-search-events-dlt
+    group-id: recentsearch-consumer-group
+    consumer-enabled: true

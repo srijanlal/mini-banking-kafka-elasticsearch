@@ -1,0 +1,23 @@
+<main class="page-shell">
+  <app-navbar />
+
+  <section class="hero">
+    <h2>Account Search Console</h2>
+    <p>
+      Type, search, click an account, then watch recent searches update through Kafka-driven microservices.
+    </p>
+  </section>
+
+  <app-search-bar (queryChanged)="onQueryChanged($event)" />
+
+  <section class="grid-layout">
+    <app-search-results
+      [accounts]="accounts"
+      [loading]="searching"
+      [errorMessage]="searchError"
+      (accountSelected)="onAccountSelected($event)"
+    />
+
+    <app-recent-search [items]="recentSearches" [loading]="loadingRecent" />
+  </section>
+</main>

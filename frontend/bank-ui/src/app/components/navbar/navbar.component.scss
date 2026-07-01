@@ -1,0 +1,42 @@
+:host {
+  display: block;
+}
+
+.nav-shell {
+  border: 1px solid var(--border-color);
+  border-radius: 1.2rem;
+  background: linear-gradient(135deg, var(--surface-bg) 0%, var(--surface-bg-soft) 100%);
+  padding: 1rem 1.2rem;
+  box-shadow: var(--soft-shadow);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+
+  h1 {
+    margin: 0;
+    font-family: var(--display-font);
+    font-size: 1.25rem;
+    color: var(--text-strong);
+  }
+
+  p {
+    margin: 0.1rem 0 0;
+    color: var(--text-muted);
+    font-size: 0.86rem;
+  }
+}
+
+.brand-mark {
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 0.8rem;
+  display: grid;
+  place-items: center;
+  font-family: var(--display-font);
+  font-weight: 700;
+  background: linear-gradient(145deg, var(--accent-teal) 0%, var(--accent-amber) 100%);
+  color: #0a1b20;
+}

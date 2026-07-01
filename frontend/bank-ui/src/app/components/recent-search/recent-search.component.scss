@@ -1,0 +1,55 @@
+:host {
+  display: block;
+}
+
+.panel {
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.84);
+  padding: 0.95rem;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+
+  h2 {
+    margin: 0;
+    font-family: var(--display-font);
+    font-size: 1.05rem;
+  }
+
+  span {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+}
+
+.state {
+  margin: 0;
+  padding: 0.7rem;
+  border-radius: 0.8rem;
+  background: #f0f7f4;
+  color: #2f4f44;
+}
+
+ol {
+  list-style: decimal;
+  margin: 0;
+  padding-inline-start: 1.2rem;
+  display: grid;
+  gap: 0.65rem;
+}
+
+li {
+  strong {
+    display: block;
+    color: var(--text-strong);
+  }
+
+  small {
+    color: var(--text-muted);
+  }
+}

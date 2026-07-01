@@ -1,0 +1,28 @@
+<section class="panel">
+  <div class="panel-head">
+    <h2>Search Results</h2>
+    <span>{{ accounts.length }} found</span>
+  </div>
+
+  @if (loading) {
+    <p class="state">Searching accounts...</p>
+  } @else if (errorMessage) {
+    <p class="state error">{{ errorMessage }}</p>
+  } @else if (accounts.length === 0) {
+    <p class="state">Start typing at least 2 characters to search.</p>
+  } @else {
+    <ul>
+      @for (account of accounts; track account.id) {
+        <li>
+          <button type="button" (click)="accountSelected.emit(account)">
+            <div>
+              <strong>{{ account.accountName }}</strong>
+              <small>#{{ account.accountNumber }} | {{ account.shortName }} | {{ account.officeCode }}</small>
+            </div>
+            <span>{{ account.status }}</span>
+          </button>
+        </li>
+      }
+    </ul>
+  }
+</section>

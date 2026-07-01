@@ -1,0 +1,40 @@
+:host {
+  display: block;
+}
+
+.search-bar-shell {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+
+  label {
+    display: block;
+    font-family: var(--display-font);
+    font-size: 0.95rem;
+    color: var(--text-strong);
+    margin-bottom: 0.55rem;
+  }
+
+  input {
+    width: 100%;
+    border: 1px solid #b8cec6;
+    border-radius: 0.8rem;
+    font-size: 1rem;
+    padding: 0.72rem 0.82rem;
+    font-family: var(--body-font);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:focus {
+      border-color: var(--accent-teal);
+      box-shadow: 0 0 0 3px rgba(14, 116, 144, 0.15);
+    }
+  }
+
+  p {
+    margin: 0.6rem 0 0;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+  }
+}
