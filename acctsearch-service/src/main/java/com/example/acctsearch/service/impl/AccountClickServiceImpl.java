@@ -47,7 +47,7 @@ public class AccountClickServiceImpl implements AccountClickService {
 
         log.info("Click registered accountId='{}', username='{}', correlationId='{}'",
                 accountId, properties.defaultUsername(), correlationId);
-
+                System.out.println("Hello, I am bot");
         return new AccountClickResponse(
                 accountId,
                 "ACCEPTED",
